@@ -9,7 +9,10 @@ import red from "@material-ui/core/colors/red";
 import yellow from "@material-ui/core/colors/yellow";
 import { Button, } from '@material-ui/core';
 
+var casesUrl = 'http://localhost:8081/api/customer-support/api/v1/clients/0/cases/';
+
 export default class Album extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -18,37 +21,20 @@ export default class Album extends React.Component {
   }
 
   componentDidMount() {
-
-    fetch('https://jsonplaceholder.typicode.com/posts')	
+    const maxCases = 10;
+    for (let i = 0; i < maxCases; i++) {
+      fetch(casesUrl + i)	
       .then(response => response.json())	
       .then(result => {	
-        this.setState( { cases: [{
-          "id": 1234,
-          "priority": "MEDIUM",
-          "title": "A not so important ticket.",
-          "description": "No one cares.",
-          "trackId": 10303456,
-          "clientId": 595059,
-          "logo": null,
-          "caseStatus": "Assingned"
-        },
-        {
-          "id": 2233,
-          "priority": "HIGH",
-          "title": "A very important ticket.",
-          "description": "Please do something fast.",
-          "trackId": 12312322,
-          "clientId": 888888,
-          "logo": null,
-          "caseStatus": "Assingned"
-        }]
-       });	
+        this.setState({ 
+          cases: this.state.cases.concat([result])
+        })
       });
+    }
   }
 
   render() {
     const { classes } = this.props;
-
     const priorities = { "HIGH": "secondary" , "MEDIUM": "primary" }
 
     const theme = createMuiTheme({

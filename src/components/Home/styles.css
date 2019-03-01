@@ -14,16 +14,25 @@
   padding-left: 100%;
 }
 
+.mainDataCard {
+  display: 'flex';
+  flex-direction: 'column'; 
+  padding: 2%;
+  
+}
+
 .card {
   display: 'flex';
   flex-direction: 'column'; 
-  padding: 5%;
+  padding: 2%;
 }
 
 .innerCard {
-  margin-right: 70%;
-}
 
+  max-width: 30%;
+  margin-left: 35%;
+  margin-right: 35%;
+}
 
 .cardMedia {
   padding-top: '56.25%';
