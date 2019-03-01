@@ -104,6 +104,7 @@ export default class Album extends React.Component {
           </Grid>
           </Paper>
     </div>
+
     );
   }
 }

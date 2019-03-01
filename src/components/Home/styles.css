@@ -20,6 +20,11 @@
   padding: 5%;
 }
 
+.innerCard {
+  margin-right: 70%;
+}
+
+
 .cardMedia {
   padding-top: '56.25%';
 }
